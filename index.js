@@ -11,6 +11,7 @@ document.addEventListener("keypress", function() {
 });
 
 function playSound(key) {
+  buttonAnimation(key);
   switch (key) {
     case "q":
       var audio = new Audio('sounds/606-cymbal1.wav');
@@ -109,5 +110,14 @@ function playSound(key) {
       var audio = new Audio('sounds/crash.mp3');
       audio.play();
       break;
+  }
+  
+  
+  function buttonAnimation(key) {
+    var button =  document.querySelector("." + key);
+    button.classList.add("pressed");
+    setTimeout(function(){
+      button.classList.remove("pressed");
+    }, 200);
   }
 }
